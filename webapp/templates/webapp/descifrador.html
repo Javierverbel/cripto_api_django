@@ -1,0 +1,19 @@
+<html lang="es">
+            <a href={% url 'inicio' %}>Volver al inicio</a>
+        <p>Este módulo descifra un texto dado con el estandar AES en modo ECB</p>
+        <form method="POST">
+        <p><label for="guess">Texto a descifrar: </label>
+            {% csrf_token %}
+        <input type="text" name="ciphertext" size="40" id="guess"/></p>
+        <input type="submit" value="Enviar texto"/>
+        </form>
+        {% if textoplano %}
+            <p>El texto plano es: {{textoplano}} </p>
+        {% endif %}
+        {% if hexa  == False%}
+            <p>El texto a descifrar debe ser una cadena hexadecimal  </p>
+        {% endif %}
+         {% if longitud == False%}
+            <p>La longitud del texto a descifrar debe ser divisible por 32</p>
+        {% endif %}
+</html>

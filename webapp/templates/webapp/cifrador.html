@@ -1,0 +1,16 @@
+<html lang="es">
+     <a href={% url 'inicio' %}>Volver al inicio</a>
+
+
+        <p>Este módulo encripta un texto dado con el estandar AES en modo ECB</p>
+
+        <form method="POST">
+        <p><label for="guess">Texto a encriptar: </label>
+        {% csrf_token %}
+        <input type="text" name="plaintext" size="40" id="guess"/></p>
+        <input type="submit" value="Enviar texto"/>
+        </form>
+        {% if textoplano %}
+                <p>El texto cifrado es: {{textocifrado}} </p>
+        {% endif %}
+</html>

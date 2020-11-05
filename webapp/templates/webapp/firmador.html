@@ -1,0 +1,17 @@
+<html lang="es">
+        <a href={% url 'inicio' %}>Volver al inicio</a>
+
+    <p>Este módulo firma un documento dado usando el esquema de firma RSASing <br>
+           con una lleve de 1024 bits cuya correspondiente llave pública es: <br>
+           {{ llave_pub }} </p>
+           <form method="POST">
+           <p><label for="guess">Documento a firmar: </label>
+               {% csrf_token %}
+           <input type="text" name="document" size="40" id="guess"/></p>
+           <input type="submit" value="Enviar texto"/>
+           </form>
+       {% if documento %}
+            <p>El documento es: {{documento}} </p>
+            <p>Su firma es: {{firma}} </p>
+        {% endif %}
+</html>
